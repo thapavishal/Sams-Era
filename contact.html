@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <title>Leaflet</title>
+
+  <link rel="stylesheet"  href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
+  <script src="assets/sweetjs/dist/sweetalert.min.js"></script> 
+  <link rel="stylesheet" type="text/css" href="assets/sweetjs/dist/sweetalert.css">
+  
+
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css"> 
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="assets/js/bootstrap.min.js"></script>
+  </head>
+
+<style>
+
+  
+  .navbar-default{
+     background-color:none;
+     border:none;
+  }
+  .navbar-nav{
+  padding-right: 400px;
+  font-family: fantasy;
+  text-decoration:blink;
+}
+  .jumbotron{
+    padding-left: 550px;
+    margin-top: -20px;
+  }
+
+
+</style>
+
+
+  <body>
+<div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <!-- <a href="#" class="navbar-brand" ><span class="glyphicon glyphicon-menu-hamburger"></span>Menu</a> -->
+
+      <ul>
+        <li class="dropdown">
+        <a href="#" class=" dropdown-toggle navbar-brand" data-toggle="dropdown"><span class="glyphicon glyphicon-menu-hamburger"></span>Menu</a>
+        <ul class="dropdown-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="#" target="_blank">Contact</a></li>
+
+        </ul>
+      </li>
+    </ul>
+
+
+
+           <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+      </form>
+ 
+          
+          <div class="collapse navbar-collapse navHeaderCollapse">
+        <ul class="nav navbar-nav navbar-right navbar-brand">
+          <li>Kuber</li>
+
+        </ul>
+  
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+<div class="container">
+  <div id="map" style="width: 900px; height: 400px"></div>
+
+ <script
+          src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+      </script>
+  
+
+      <script>
+      var map = L.map('map').setView([27.6174620 , 85.3510100], 15);
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://openstreetmap.org">Openstreetmap</a>'
+      }).addTo(map);
+      L.marker([27.6174620 , 85.3510100]).addTo(map)
+        .bindPopup("Hello").openPopup();
+      
+      function onMapClick(e) {
+        popup
+          .setLatLng(e.latlng)
+          .setContent("MY Home " + e.latlng.toString())
+          .openOn(map);
+      }
+      map.on('click', onMapClick);
+  </script>  
+</div>
+
+  </body>
+</html>
